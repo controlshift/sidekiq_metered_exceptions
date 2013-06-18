@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Nathan Woodhull"]
   s.date = "2013-06-18"
-  s.description = "TODO: longer description of your gem"
+  s.description = "Some exceptions are transient, so notifying an admin is not useful."
   s.email = "woodhull@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
     "VERSION",
     "lib/middleware.rb",
     "lib/sidekiq_metered_exceptions.rb",
+    "sidekiq_metered_exceptions.gemspec",
     "test/helper.rb",
     "test/test_sidekiq_metered_exceptions.rb"
   ]
@@ -34,7 +35,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.24"
-  s.summary = "TODO: one-line summary of your gem"
+  s.summary = "Only propagate sidekiq exceptions that have already been retried once."
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
