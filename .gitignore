@@ -28,11 +28,14 @@ pkg
 #
 # For MacOS:
 #
-#.DS_Store
+.DS_Store
 
 # For TextMate
-#*.tmproj
-#tmtags
+*.tmproj
+tmtags
+
+# for intellij
+.idea/*
 
 # For emacs:
 #*~
