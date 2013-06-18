@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "sidekiq_metered_exceptions"
   gem.homepage = "http://github.com/woodhull/sidekiq_metered_exceptions"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Only propagate sidekiq exceptions that have already been retried once.}
+  gem.description = %Q{Some exceptions are transient, so notifying an admin is not useful.}
   gem.email = "woodhull@gmail.com"
   gem.authors = ["Nathan Woodhull"]
   # dependencies defined in Gemfile
