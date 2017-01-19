@@ -2,6 +2,8 @@
 
 A tiny sidekiq middleware that silences transient errors.
 
+After version 0.2.0 it is raven-sentry specific.
+
 == Copyright
 
 Copyright (c) 2013 ControlShift Ltd. See LICENSE.txt for
