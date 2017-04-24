@@ -2,7 +2,7 @@ require 'sidekiq'
 require 'raven/integrations/sidekiq'
 
 module SidekiqMeteredExceptions
-  class MeteredRavenErrorHandler < ::Raven::Sidekiq
+  class MeteredRavenErrorHandler < ::Raven::SidekiqErrorHandler
     def call(ex, context)
       ::Rails.logger.debug("MeteredRavenErrorHandler -- Error on Sidekiq job. Exception: #{ex.inspect} - Context: #{context.inspect}")
 
