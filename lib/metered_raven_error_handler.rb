@@ -6,9 +6,17 @@ module SidekiqMeteredExceptions
     def call(ex, context)
       ::Rails.logger.debug("MeteredRavenErrorHandler -- Error on Sidekiq job. Exception: #{ex.inspect} - Context: #{context.inspect}")
 
-      retry_count = (context['retry_count'] || (context[:job] && context[:job]['retry_count'])).try(:to_i)
+      # If the job context has a `retry_count` key, it tells us how many times the job has been REtried so far.
+      # If it lacks this key, it has never been retried; this is the first attempt.
+      retry_count = (context['retry_count'] || (context[:job] && context[:job]['retry_count'])).try(:to_i) || 0
 
-      if retry_count.nil? || retry_count > 1
+      # Is this a retryable job?
+      is_retryable = context[:job] && context[:job]['retry']
+
+      # We notify if this job has been retried at least once.
+      # Someday we plan to make this number configurable.
+      # If this isn't a retryable job, we notify even if this is the first attempt, because there will not be more attempts.
+      if retry_count > 0 || !is_retryable
         ::Rails.logger.debug("MeteredRavenErrorHandler -- Current retry count: #{retry_count}. Notifying upstream...")
 
         super(ex, context)
