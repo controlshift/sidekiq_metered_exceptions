@@ -11,7 +11,7 @@ module SidekiqMeteredExceptions
       retry_count = (context['retry_count'] || (context[:job] && context[:job]['retry_count'])).try(:to_i) || 0
 
       # Is this a retryable job?
-      is_retryable = context[:job] && context[:job]['retry']
+      is_retryable = context['retry'] || (context[:job] && context[:job]['retry'])
 
       # We notify if this job has been retried at least once.
       # Someday we plan to make this number configurable.
