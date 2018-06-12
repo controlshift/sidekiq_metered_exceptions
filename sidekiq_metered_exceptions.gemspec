@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib".freeze]
   s.authors = ["Nathan Woodhull".freeze]
-  s.date = "2018-04-23"
+  s.date = "2018-06-12"
   s.description = "Some exceptions are transient, so notifying an admin is not useful.".freeze
   s.email = "woodhull@gmail.com".freeze
   s.extra_rdoc_files = [
