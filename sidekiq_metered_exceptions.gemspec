@@ -45,24 +45,24 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<sidekiq>.freeze, ["< 6.0", ">= 2.12.4"])
       s.add_runtime_dependency(%q<sentry-raven>.freeze, ["~> 2.3"])
       s.add_development_dependency(%q<minitest>.freeze, [">= 0"])
-      s.add_development_dependency(%q<rdoc>.freeze, [">= 0"])
+      s.add_development_dependency(%q<rdoc>.freeze, ["~> 6.0"])
       s.add_development_dependency(%q<bundler>.freeze, [">= 0"])
-      s.add_development_dependency(%q<jeweler>.freeze, [">= 0"])
+      s.add_development_dependency(%q<jeweler>.freeze, ["~> 2.3"])
     else
       s.add_dependency(%q<sidekiq>.freeze, ["< 6.0", ">= 2.12.4"])
       s.add_dependency(%q<sentry-raven>.freeze, ["~> 2.3"])
       s.add_dependency(%q<minitest>.freeze, [">= 0"])
-      s.add_dependency(%q<rdoc>.freeze, [">= 0"])
+      s.add_dependency(%q<rdoc>.freeze, ["~> 6.0"])
       s.add_dependency(%q<bundler>.freeze, [">= 0"])
-      s.add_dependency(%q<jeweler>.freeze, [">= 0"])
+      s.add_dependency(%q<jeweler>.freeze, ["~> 2.3"])
     end
   else
     s.add_dependency(%q<sidekiq>.freeze, ["< 6.0", ">= 2.12.4"])
     s.add_dependency(%q<sentry-raven>.freeze, ["~> 2.3"])
     s.add_dependency(%q<minitest>.freeze, [">= 0"])
-    s.add_dependency(%q<rdoc>.freeze, [">= 0"])
+    s.add_dependency(%q<rdoc>.freeze, ["~> 6.0"])
     s.add_dependency(%q<bundler>.freeze, [">= 0"])
-    s.add_dependency(%q<jeweler>.freeze, [">= 0"])
+    s.add_dependency(%q<jeweler>.freeze, ["~> 2.3"])
   end
 end
 

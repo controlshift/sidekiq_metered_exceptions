@@ -5,7 +5,7 @@ gem 'sentry-raven', '~> 2.3'
 
 group :development do
   gem 'minitest', '>= 0'
-  gem 'rdoc'
+  gem 'rdoc', '~> 6.0'
   gem 'bundler'
-  gem 'jeweler'
+  gem 'jeweler', '~> 2.3'
 end
