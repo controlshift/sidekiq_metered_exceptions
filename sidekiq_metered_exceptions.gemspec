@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib".freeze]
   s.authors = ["Nathan Woodhull".freeze]
-  s.date = "2018-06-12"
+  s.date = "2018-12-04"
   s.description = "Some exceptions are transient, so notifying an admin is not useful.".freeze
   s.email = "woodhull@gmail.com".freeze
   s.extra_rdoc_files = [
@@ -23,7 +23,6 @@ Gem::Specification.new do |s|
     ".ruby-gemset",
     ".ruby-version",
     "Gemfile",
-    "Gemfile.lock",
     "LICENSE.txt",
     "README.rdoc",
     "Rakefile",
@@ -43,23 +42,23 @@ Gem::Specification.new do |s|
     s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<sidekiq>.freeze, [">= 0"])
-      s.add_runtime_dependency(%q<sentry-raven>.freeze, [">= 0"])
+      s.add_runtime_dependency(%q<sidekiq>.freeze, ["< 6.0", ">= 2.12.4"])
+      s.add_runtime_dependency(%q<sentry-raven>.freeze, ["~> 2.3"])
       s.add_development_dependency(%q<minitest>.freeze, [">= 0"])
       s.add_development_dependency(%q<rdoc>.freeze, [">= 0"])
       s.add_development_dependency(%q<bundler>.freeze, [">= 0"])
       s.add_development_dependency(%q<jeweler>.freeze, [">= 0"])
     else
-      s.add_dependency(%q<sidekiq>.freeze, [">= 0"])
-      s.add_dependency(%q<sentry-raven>.freeze, [">= 0"])
+      s.add_dependency(%q<sidekiq>.freeze, ["< 6.0", ">= 2.12.4"])
+      s.add_dependency(%q<sentry-raven>.freeze, ["~> 2.3"])
       s.add_dependency(%q<minitest>.freeze, [">= 0"])
       s.add_dependency(%q<rdoc>.freeze, [">= 0"])
       s.add_dependency(%q<bundler>.freeze, [">= 0"])
       s.add_dependency(%q<jeweler>.freeze, [">= 0"])
     end
   else
-    s.add_dependency(%q<sidekiq>.freeze, [">= 0"])
-    s.add_dependency(%q<sentry-raven>.freeze, [">= 0"])
+    s.add_dependency(%q<sidekiq>.freeze, ["< 6.0", ">= 2.12.4"])
+    s.add_dependency(%q<sentry-raven>.freeze, ["~> 2.3"])
     s.add_dependency(%q<minitest>.freeze, [">= 0"])
     s.add_dependency(%q<rdoc>.freeze, [">= 0"])
     s.add_dependency(%q<bundler>.freeze, [">= 0"])

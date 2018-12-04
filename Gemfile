@@ -1,14 +1,11 @@
 source "http://rubygems.org"
-# Add dependencies required to use your gem here.
 
-gem 'sidekiq'
-gem 'sentry-raven'
+gem 'sidekiq', '>= 2.12.4', '< 6.0'
+gem 'sentry-raven', '~> 2.3'
 
-# Add dependencies to develop your gem here.
-# Include everything needed to run rake, tests, features, etc.
 group :development do
-  gem "minitest", ">= 0"
-  gem "rdoc"
-  gem "bundler"
-  gem "jeweler"
+  gem 'minitest', '>= 0'
+  gem 'rdoc'
+  gem 'bundler'
+  gem 'jeweler'
 end
