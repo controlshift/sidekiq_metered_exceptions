@@ -1,8 +1,15 @@
 require 'sidekiq'
+require 'active_support/core_ext/hash'  # for deep_symbolize_keys
 require 'raven/integrations/sidekiq'
 
 module SidekiqMeteredExceptions
   class MeteredRavenErrorHandler < ::Raven::SidekiqErrorHandler
+    attr_reader :errors_to_ignore_on_first_occurrence
+
+    def initialize(errors_to_ignore_on_first_occurrence: [])
+      @errors_to_ignore_on_first_occurrence = errors_to_ignore_on_first_occurrence
+    end
+
     def call(ex, original_context)
       ::Rails.logger.debug("MeteredRavenErrorHandler -- Error on Sidekiq job. Exception: #{ex.inspect} - Context: #{original_context.inspect}")
 
@@ -16,10 +23,14 @@ module SidekiqMeteredExceptions
       # Is this a retryable job?
       is_retryable = context[:retry] || (context[:job] && context[:job][:retry])
 
-      # We notify if this job has been retried at least once.
-      # Someday we plan to make this number configurable.
-      # If this isn't a retryable job, we notify even if this is the first attempt, because there will not be more attempts.
-      if retry_count > 0 || !is_retryable
+      # We notify to Sentry unless:
+      # Is not one of the errors that should be ignored on first occurrence
+      #             AND
+      # This job has not been retried at least once
+      #             AND
+      # Sidekiq is automatically retrying the job
+      #
+      unless errors_to_ignore_on_first_occurrence.include?(ex.class) && retry_count < 1 && is_retryable
         ::Rails.logger.debug("MeteredRavenErrorHandler -- Current retry count: #{retry_count}. Notifying upstream...")
 
         super(ex, original_context)

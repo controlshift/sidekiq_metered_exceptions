@@ -1,7 +1,3 @@
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-$LOAD_PATH.unshift(File.dirname(__FILE__))
-require 'sidekiq_metered_exceptions'
-
 require 'rubygems'
 require 'bundler'
 begin
@@ -13,3 +9,10 @@ rescue Bundler::BundlerError => e
 end
 
 require 'rspec'
+require 'sentry-raven'
+
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
+$LOAD_PATH.unshift(File.dirname(__FILE__))
+require 'sidekiq_metered_exceptions'
+
+
