@@ -1,3 +1,7 @@
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
+$LOAD_PATH.unshift(File.dirname(__FILE__))
+require 'sidekiq_metered_exceptions'
+
 require 'rubygems'
 require 'bundler'
 begin
@@ -7,10 +11,5 @@ rescue Bundler::BundlerError => e
   $stderr.puts "Run `bundle install` to install missing gems"
   exit e.status_code
 end
-require 'minitest/autorun'
-require 'minitest/pride'
 
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-$LOAD_PATH.unshift(File.dirname(__FILE__))
-require 'sidekiq_metered_exceptions'
-
+require 'rspec'

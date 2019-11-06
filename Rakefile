@@ -11,9 +11,8 @@ rescue Bundler::BundlerError => e
 end
 require 'rake'
 
-require 'jeweler'
-Jeweler::Tasks.new do |gem|
-  # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
+require 'juwelier'
+Juwelier::Tasks.new do |gem|
   gem.name = "sidekiq_metered_exceptions"
   gem.homepage = "http://github.com/woodhull/sidekiq_metered_exceptions"
   gem.license = "MIT"
@@ -21,18 +20,23 @@ Jeweler::Tasks.new do |gem|
   gem.description = %Q{Some exceptions are transient, so notifying an admin is not useful.}
   gem.email = "woodhull@gmail.com"
   gem.authors = ["Nathan Woodhull"]
+
   # dependencies defined in Gemfile
 end
-Jeweler::RubygemsDotOrgTasks.new
+Juwelier::RubygemsDotOrgTasks.new
 
-require 'rake/testtask'
-Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
+require 'rspec/core'
+require 'rspec/core/rake_task'
+RSpec::Core::RakeTask.new(:spec) do |spec|
+  spec.pattern = FileList['spec/**/*_spec.rb']
 end
 
-task :default => :test
+RSpec::Core::RakeTask.new(:rcov) do |spec|
+  spec.pattern = 'spec/**/*_spec.rb'
+  spec.rcov = true
+end
+
+task :default => :spec
 
 require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
