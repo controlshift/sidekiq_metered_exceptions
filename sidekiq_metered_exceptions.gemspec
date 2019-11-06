@@ -44,6 +44,7 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<sidekiq>.freeze, [">= 2.12.4", "< 6.0"])
       s.add_runtime_dependency(%q<sentry-raven>.freeze, ["~> 2.3"])
+      s.add_runtime_dependency(%q<activesupport>.freeze, [">= 0"])
       s.add_development_dependency(%q<rspec>.freeze, [">= 0"])
       s.add_development_dependency(%q<rdoc>.freeze, ["~> 6.0"])
       s.add_development_dependency(%q<bundler>.freeze, [">= 0"])
@@ -51,6 +52,7 @@ Gem::Specification.new do |s|
     else
       s.add_dependency(%q<sidekiq>.freeze, [">= 2.12.4", "< 6.0"])
       s.add_dependency(%q<sentry-raven>.freeze, ["~> 2.3"])
+      s.add_dependency(%q<activesupport>.freeze, [">= 0"])
       s.add_dependency(%q<rspec>.freeze, [">= 0"])
       s.add_dependency(%q<rdoc>.freeze, ["~> 6.0"])
       s.add_dependency(%q<bundler>.freeze, [">= 0"])
@@ -59,6 +61,7 @@ Gem::Specification.new do |s|
   else
     s.add_dependency(%q<sidekiq>.freeze, [">= 2.12.4", "< 6.0"])
     s.add_dependency(%q<sentry-raven>.freeze, ["~> 2.3"])
+    s.add_dependency(%q<activesupport>.freeze, [">= 0"])
     s.add_dependency(%q<rspec>.freeze, [">= 0"])
     s.add_dependency(%q<rdoc>.freeze, ["~> 6.0"])
     s.add_dependency(%q<bundler>.freeze, [">= 0"])
