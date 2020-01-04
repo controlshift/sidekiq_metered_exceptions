@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem 'sidekiq', '> 5.0'
+gem 'sidekiq'
 gem 'sentry-raven', '~> 2.3'
 gem 'activesupport'
 
