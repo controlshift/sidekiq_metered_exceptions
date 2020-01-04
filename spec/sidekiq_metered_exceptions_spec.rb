@@ -6,7 +6,7 @@ end
 describe SidekiqMeteredExceptions::MeteredRavenErrorHandler do
   describe '#initialize' do
     it 'should not raise if errors_to_ignore_on_first_occurrence argument not provided' do
-      expect { SidekiqMeteredExceptions::MeteredRavenErrorHandler.new }.not_to raise_error ArgumentError
+      expect { SidekiqMeteredExceptions::MeteredRavenErrorHandler.new }.not_to raise_error
     end
 
     it 'should set errors_to_ignore_on_first_occurrence if provided' do
